@@ -7,30 +7,32 @@ class App extends Component {
 		super()
 		this.state = {
 			string: 'Hello, Jungkon Kim',
+			family: [
+				{
+					name: 'Suho',
+					id: 'p1',
+				},
+				{
+					name: 'Sua',
+					id: 'p2',
+				},
+				{
+					name: 'Hyunju',
+					id: 'p3',
+				},
+				{
+					name: 'Jungkon',
+					id: 'p4',
+				},
+			],
 		}
 	}
 	render() {
 		return (
 			<div className="App">
-				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
-					<p>{this.state.string}</p>
-					<button
-						onClick={() => {
-							this.setState({ string: 'Hello, Suho!!' })
-						}}
-					>
-						Change
-					</button>
-					<a
-						className="App-link"
-						href="https://reactjs.org"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Learn React
-					</a>
-				</header>
+				{this.state.family.map((p) => (
+					<h1 id={p.id}>{p.name}</h1>
+				))}
 			</div>
 		)
 	}
