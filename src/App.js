@@ -6,24 +6,20 @@ class App extends Component {
 	constructor() {
 		super()
 		this.state = {
-			family: [],
+			monsters: [],
 		}
 	}
 
 	componentDidMount() {
 		fetch('https://jsonplaceholder.typicode.com/users')
 			.then((response) => response.json())
-			.then((users) => this.setState({ family: users }))
+			.then((users) => this.setState({ monsters: users }))
 	}
 
 	render() {
 		return (
 			<div className="App">
-				<CardList>
-					{this.state.family.map((p) => (
-						<h1 id={p.id}>{p.name}</h1>
-					))}
-				</CardList>
+				<CardList monsters={this.state.monsters}></CardList>
 			</div>
 		)
 	}
